@@ -84,7 +84,7 @@ nav a:active {
   text-align: center;
 }
 #top table,
-#top th {
+#top td, #top th {
   border-collapse: separate;
   border-spacing: 2px;
   margin-left: auto;
