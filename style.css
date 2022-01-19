@@ -116,7 +116,8 @@ input:focus {
   border: 1px solid #555;
 }
 
-input[type="submit"] {
+input[type="submit"],
+button[type="button"] {
   background-color: #bf7ecf;
   border: none;
   color: white;

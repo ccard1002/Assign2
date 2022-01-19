@@ -65,7 +65,7 @@
                     <th>Model</th>
                     <th>Os</th>
                     <th>Screensize</th>
-                    <th>Image</th>
+                    <th data-sorter="false">Image</th>
                 </tr>
               </thead>
 
@@ -95,7 +95,7 @@
               <tbody class="ignore_sort">
                 <tr>
                     <td colspan="5">
-                        <form action="https://wt.ops.labs.vu.nl/api22/534341f7" method="post" target="_blank">
+                        <form action="https://wt.ops.labs.vu.nl/api22/534341f7" method="POST" target="_blank">
                             <div>
                                 <label for="brand">Brand:</label>
                                 <input type="text" name="brand" id="brand" required placeholder="Apple">
@@ -117,6 +117,7 @@
                                 <input type="url" name="image" id="image">
                             </div>
                             <input class="blue_submit" type="submit" value="Add list">
+                            <button type="button" class="blue_submit">Reset</button>
                         </form>
                     </td>
                 </tr>
