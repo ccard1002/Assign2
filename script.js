@@ -6,9 +6,13 @@ $(document).ready(function () {
     reset();
   });
   createTable();
-  $("#submit").click(postQuery);
+  $("#delete").click(delete_by_id);
+  $("#add").click(postQuery);
+  $("#get").click(get_by_id);
+  $("#update").click(update);
   $("#table1").tablesorter();
   $("#table2").tablesorter();
+
 });
 
 //task 2 reset the data in the database
@@ -72,7 +76,7 @@ function createTable() {
   });
 }
 
-//task 4 submit new table content
+//task 4 add new item to the table on the top
 function postQuery() {
   let l = {};
   l["brand"] = $("#brand").val();
@@ -85,12 +89,56 @@ function postQuery() {
     url: "http://localhost:3000/create",
     data: l,
     method: "POST",
-    dataType: "json",
-  }).done(function () {
+    dataType: "json"
+  }).done(function (result) {
     createTable();
   });
 }
 
+// function for updating the table by id
 function update() {
+  let l ={};
+  l["id"] = $("#id").val();
+  l["brand"] = $("#brand").val();
+  l["model"] = $("#model").val();
+  l["os"] = $("#os").val();
+  l["image"] = $("#image").val();
+  l["screensize"] = $("#screensize").val();
+
+  $.ajax({
+    url: "http://localhost:3000/update",
+    data: l,
+    method: "PUT",
+    dataType: "json"
+  }).done(function (result) {
+    createTable();
+  });
   
+}
+
+
+//Get a specific item by id
+function get_by_id() {
+  id = $("#id").val();
+  $.ajax({
+    url: `http://localhost:3000/${id}`,
+    method: "GET",
+    dataType: "json"
+  }).done(function (result) {
+    clear()
+    updateTable(result);
+  });
+}
+
+//Delete a specific item by id
+function delete_by_id() {
+  id = $("#id").val();
+  $.ajax({
+    url: `http://localhost:3000/delete/${id}`,
+    method: "DELETE",
+    dataType: "json"
+  }).done(function (result) {
+    createTable();
+  });
+
 }
