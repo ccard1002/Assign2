@@ -74,13 +74,12 @@ function createTable() {
 
 //task 4 submit new table content
 function postQuery() {
-  // let l = {};
-  // l["brand"] = $("#brand").val();
-  // l["model"] = $("#model").val();
-  // l["os"] = $("#os").val();
-  // l["image"] = $("#image").val();
-  // l["screensize"] = $("#screensize").val();
-
+  let l = {};
+  l["brand"] = $("#brand").val();
+  l["model"] = $("#model").val();
+  l["os"] = $("#os").val();
+  l["image"] = $("#image").val();
+  l["screensize"] = $("#screensize").val();
 
   $.ajax({
     url: "http://localhost:3000/create",
