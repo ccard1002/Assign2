@@ -26,7 +26,8 @@
 		<h1>Blue Store</h1>
 		<figure>
 			<img id="icon" src="https://i.ibb.co/RBmFTcM/pngegg.png" height="200" alt="store logo">
-            </figure>
+    </figure>
+    
             <nav>
                 <a href="#welcome">Welcoming</a> &nbsp;
                 <a href="#top">Top selling products</a> &nbsp;
@@ -96,6 +97,21 @@
                 <tr>
                     <td colspan="5">
                         <form>
+                          <div>
+                            <p>When clicking Get item and delete buttons, you only need to input the id. When updating item, you need to fill in all of the inputs and click update item button. </p>
+                          </div>
+                          <div>
+                            <button type="button" id="reset">Reset</button>
+                            <button type="button">Delete</button> 
+                          </div>
+                          <div>                
+                            <label for="id">Id:
+                            </label>
+                            <input type="number"
+                            name="id"
+                            min="1">
+                          </div>
+                      
                             <div>
                                 <label for="brand">Brand:</label>
                                 <input type="text" name="brand" id="brand" required placeholder="Apple">
@@ -110,7 +126,9 @@
                             </div>
                             <div>
                                 <label for="screensize">Screensize:</label>
-                                <input type="number" min="1" name="screensize" id="screensize" required placeholder="5">
+                                <input type="number" min="1" 
+                                step="0.1"
+                                name="screensize" id="screensize" required placeholder="5">
                             </div>
                             <div>
                                 <label for="image">Image:</label>
@@ -118,8 +136,11 @@
                             </div>
                             <input class="blue_submit"
                             id="submit" 
-                            type="button" value="Add list">
-                            <button type="button" id="reset">Reset</button>
+                            type="button" value="Add item">
+                            <button type="button">
+                              Get item
+                            </button>
+                            <button type="button">Update item</button>
                         </form>
                     </td>
                 </tr>

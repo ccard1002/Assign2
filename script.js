@@ -4,7 +4,6 @@
 $(document).ready(function () {
   $("#reset").click(function () {
     reset();
-    createTable();
   });
   createTable();
   $("#submit").click(postQuery);
@@ -15,11 +14,12 @@ $(document).ready(function () {
 //task 2 reset the data in the database
 function reset() {
   $.ajax({
-    url: "https://wt.ops.labs.vu.nl/api22/534341f7/reset",
-    method: "GET",
+    url: "http://localhost:3000/reset",
+    method: "DELETE",
     dataType: "json"
   }).done(function (data) {
     console.log("reset the database");
+    createTable();
   });
 }
 
@@ -64,7 +64,7 @@ function clear() {
 function createTable() {
   clear();
   $.ajax({
-    url: "https://wt.ops.labs.vu.nl/api22/534341f7",
+    url: "http://localhost:3000/products",
     method: "GET",
     dataType: "json"
   }).done(function (result) {
@@ -74,19 +74,24 @@ function createTable() {
 
 //task 4 submit new table content
 function postQuery() {
-  let l = {};
-  l["brand"] = $("#brand").val();
-  l["model"] = $("#model").val();
-  l["os"] = $("#os").val();
-  l["image"] = $("#image").val();
-  l["screensize"] = $("#screensize").val();
+  // let l = {};
+  // l["brand"] = $("#brand").val();
+  // l["model"] = $("#model").val();
+  // l["os"] = $("#os").val();
+  // l["image"] = $("#image").val();
+  // l["screensize"] = $("#screensize").val();
+
 
   $.ajax({
-    url: "https://wt.ops.labs.vu.nl/api22/534341f7",
+    url: "http://localhost:3000/create",
     data: l,
     method: "POST",
     dataType: "json",
   }).done(function () {
     createTable();
   });
+}
+
+function update() {
+  
 }
